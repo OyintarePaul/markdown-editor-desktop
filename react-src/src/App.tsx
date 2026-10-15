@@ -1,3 +1,22 @@
+import { useEffect } from "react";
+
+import { Editor } from "@/components/Editor";
+import { MenuBar } from "@/components/MenuBar";
+import { Preview } from "@/components/Preview";
+import { StatusBar } from "@/components/StatusBar";
+
+import {
+	ResizableHandle,
+	ResizablePanel,
+	ResizablePanelGroup,
+} from "@/components/ui/resizable";
+
+import { useCloseGuard } from "@/hooks/useCloseGuard";
+import { useDocument } from "@/hooks/useDocument";
+import { useRecents } from "@/hooks/useRecents";
+import { useShortcuts } from "@/hooks/useShortcuts";
+import { useTheme } from "@/hooks/useTheme";
+
 import {
 	askUnsaved,
 	openFile,
@@ -7,22 +26,6 @@ import {
 	setWindowTitle,
 	showError,
 } from "@/native/fileService";
-
-import { Editor } from "@/components/Editor";
-import { MenuBar } from "@/components/MenuBar";
-import { Preview } from "@/components/Preview";
-import { StatusBar } from "@/components/StatusBar";
-import {
-	ResizableHandle,
-	ResizablePanel,
-	ResizablePanelGroup,
-} from "@/components/ui/resizable";
-import { useCloseGuard } from "@/hooks/useCloseGuard";
-import { useDocument } from "@/hooks/useDocument";
-import { useRecents } from "@/hooks/useRecents";
-import { useShortcuts } from "@/hooks/useShortcuts";
-import { useTheme } from "@/hooks/useTheme";
-import { useEffect } from "react";
 
 export default function App() {
 	const doc = useDocument();
@@ -96,7 +99,7 @@ export default function App() {
 		} catch (e) {
 			removeRecent(path);
 			await showError(
-				"Could not open that file. It may have been moved or deleted, so it was removed from the recent list.",
+				"Could not open that file. It may have been moved or deleted.",
 				e,
 			);
 		}

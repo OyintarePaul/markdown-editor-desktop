@@ -3,12 +3,16 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 
-import { init } from "@neutralinojs/lib";
+const root = document.getElementById("root");
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
-
-init();
+if (!root) {
+	console.error(
+		"Failed to find the root element. Ensure <div id='root'></div> exists in your index.html",
+	);
+} else {
+	createRoot(root).render(
+		<StrictMode>
+			<App />
+		</StrictMode>,
+	);
+}

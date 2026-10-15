@@ -1,11 +1,11 @@
 import {
-	init,
 	app,
 	events,
-	os,
 	filesystem,
-	storage,
+	init,
 	window as nlWindow,
+	os,
+	storage,
 } from "@neutralinojs/lib";
 
 type MsgArgs = Parameters<typeof os.showMessageBox>;
