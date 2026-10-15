@@ -1,0 +1,47 @@
+{
+  "applicationId": "js.neutralino.neu-app",
+  "version": "1.0.0",
+  "defaultMode": "window",
+  "documentRoot": "/react-src/dist/",
+  "url": "http://localhost:3000/",
+  "enableServer": true,
+  "enableNativeAPI": true,
+  "nativeAllowList": [
+    "app.*",
+    "filesystem.*",
+    "window.*",
+    "os.*",
+    "storage.*",
+    "events.*"
+  ],
+  "modes": {
+    "window": {
+      "title": "Neu App Test",
+      "width": 800,
+      "height": 500,
+      "minWidth": 400,
+      "minHeight": 200,
+      "icon": "/react-src/public/checklist.png",
+      "enableInspector": true,
+      "alwaysOnTop": false,
+      "injectGlobals": true,
+      "exitProcessOnClose": false,
+      "openInspectorOnStartup": false
+    }
+  },
+  "cli": {
+    "binaryName": "neu-app",
+    "extensionsPath": "/extensions/",
+    "resourcesPath": "/react-src/dist/",
+    "frontendLibrary": {
+      "patchFile": "/react-src/index.html",
+      "devUrl": "http://localhost:3000",
+      "projectPath": "/react-src/",
+      "initCommand": "npm install",
+      "devCommand": "npm run dev",
+      "buildCommand": "npm run build",
+      "waitTimeout": 120000
+    },
+    "binaryVersion": "6.10.0"
+  }
+}
